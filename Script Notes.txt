@@ -1,0 +1,58 @@
+Include map scale speed
+Slight randomness in particle colour
+Have stretches of the path where the waterway parameters vary (e.g. deep part, shallow part)
+
+Discharge = volume of waterway flow in m/s
+Velocity = speed of waterway flow in m/s
+Depth = depth of waterway in m
+Width = width of waterway in m
+Path distance = length of waterway in m
+
+
+
+Visual representations:
+Discharge = size of particle
+Velocity = speed of particle
+Animation velocity = speed of particle * 1000
+Animation duration = length of waterway / animation velocity
+Depth = darkness of particle
+Width = width of waterway path
+
+
+Typical values:
+Discharge = 80 m^3/s
+Velocity = 0.4 m/s
+Depth = 5 m
+Width = 100 m
+Length = variable (2km for first example)
+1km on map = 1000px
+
+
+Procedure 1
+
+1) Estimate the waterway length
+2) Note waterway Velocity
+3) Velocity * Length = Total time for animation
+4) Set "Trace_Null" Trace Path keyframes to permit correctly timed loop and offset
+5) First keyframe on 00:00 = 0%
+6) Second keyframe on Total time for animation = 99.999%
+7) Give second keyframe a Hold interpolation mode
+8) Copy the first two keyframes and paste 1 frame later
+9) "Trace_Null" duration irrelevent (but ensure is looping via script)
+
+Layer name
+>Parameters
+>>Parameters
+>>>Parameters
+Script
+
+River_Path_0001
+>Contents
+>>Shape 1
+>>>Path 1
+
+River_Path_0001_Trace_Null
+>Effects
+>>Trace Path
+>>>Progress
+loopOut("cycle")
