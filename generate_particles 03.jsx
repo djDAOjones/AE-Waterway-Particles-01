@@ -1,4 +1,4 @@
-// === Setup Parameters ===
+// === Setup Parameter Bollocks ===
 var numberOfParticles = 5;
 var animationDuration = 10; // in seconds
 
